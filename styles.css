@@ -161,9 +161,18 @@ header {
     }
   }
 
+  @media screen and (max-width: 500px) {
+
+    .caja-colecciones {
+
+      flex-direction: column;
+    }
+  }
 
   @media screen and (max-width: 690px) {
 
+
+    
     header {
         flex-direction: row;
         justify-content: space-between;
@@ -218,6 +227,8 @@ header {
         width: 107px;
     }
 
+
+      
   }
     .catalogo-libros {
         
@@ -293,4 +304,57 @@ header {
     justify-content: center;
     align-items: center;
   }
+
+  .caja-colecciones {
+    display: flex;
+   
+    gap: 10px;
+    cursor: pointer;
+  }
  
+  .caja-colecciones button {
+
+    width: 130px;
+    height: 30px;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+   
+  }
+
+  .boton-todos {
+    width: 150px;
+    height: 30px;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+
+  }
+
+  .boton-narrativa {
+
+    background-image: url(/libros/textura2.jpg);
+  }
+
+  .boton-ensayos {
+
+    background-image: url(/libros/textura3.jpg);
+    
+  }
+  .boton-exotopías {
+
+    background-image: url(/libros/textura.jpg);
+    color: white;
+  }
+
+  .caja-todos-botones {
+
+    min-width: 320px;
+    max-width: 600px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    
+  }
