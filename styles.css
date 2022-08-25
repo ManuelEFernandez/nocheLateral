@@ -35,7 +35,7 @@ html, body {
 }
 
 main {
-    gap: 60px;
+    gap: 45px;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -139,7 +139,7 @@ header {
     width: 90%;
     height: 2px;
     background-color: black;
-    top: 110%;
+    top: 105%;
     
 }
 .banner {
@@ -354,7 +354,7 @@ header {
     height: auto;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
     align-items: center;
     
   }
