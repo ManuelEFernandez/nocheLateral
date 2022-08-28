@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>nocheLateral</title>
-    <link rel="stylesheet" href="/../styles.css" />
+    <link rel="stylesheet" href="../styles.css">
     <script
       src="https://kit.fontawesome.com/b7df5782e3.js"
       crossorigin="anonymous"
@@ -14,8 +14,8 @@
   <body>
     <header>
       <div class="caja-logo">
-        <img class="logoGrande" src="/../logo.png" alt="logo" />
-        <img class="logoChico" src="/../logoChico.png" alt="logo" />
+        <img class="logoGrande" src="../logo.png" alt="logo" />
+        <img class="logoChico" src="../logoChico.png" alt="logo" />
       </div>
       <nav>
         <i id="menuH" class="fa-solid fa-bars"></i>
@@ -24,12 +24,25 @@
           <li class="li-head">Quiénes somos</li>
           <li class="li-head">Comprar</li>
           <li class="li-head">Contacto</li>
+          <a href="/acceso/index.html"><li class="li-head">Acceso</li></a>
         </ul>
       </nav>
     </header>
     <main>
       <div class="caja-registro">
-        <form action="">
+        <form class="form-registro" id="form" action="">
+            <h4>Creá tu cuenta</h4>
+            <div class="form-field">
+                <input
+                  type="text"
+                  placeholder="Usuario"
+                  class="form-input"
+                  id="usuario"
+                  autocomplete="off"
+                />
+                <small></small>
+              </div>
+              
           <div class="form-field">
             <input
               type="email"
@@ -38,25 +51,32 @@
               id="email"
               autocomplete="off"
             />
+            <small></small>
+            
           </div>
+          
           <div class="form-field">
             <input
-              type="epassword"
+              type="password"
               placeholder="Password"
               class="form-input"
-              id="Password"
+              id="password"
               autocomplete="off"
             />
+            <small></small>
           </div>
+          
           <div class="form-field">
             <input
               type="text"
               placeholder="Teléfono"
               class="form-input"
-              id="Teléfono"
+              id="telefono"
               autocomplete="off"
             />
+            <small></small>
           </div>
+          
           <input type="submit" class="form-submit" value="Ingresar" />
         </form>
       </div>
