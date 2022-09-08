@@ -29,8 +29,60 @@ const debounce = (fn, delay = 500) => {
 
 const passwordSegura = (password) => {
 
-    const passwordRegEx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    return passwordRegEx.test(password);
+    // const passwordRegEx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const mayusRegex = /(?=.*[A-Z]).*/;
+    const minusRegex = /(?=.*[a-z]).*/;
+    const numeroRegex = /\d/;
+    const caracteresEspecialesRegex = /[@$!%*?&¡(){}]/;
+    const limiteRegex = /(?=.{8,})/;
+
+
+    const objetoPassword = {
+
+        mayuscula: {
+
+            error: !mayusRegex.test(password),
+            message: "La contraseña debe tener una mayúscula"
+        },
+
+        minuscula: {
+
+            error: !minusRegex.test(password),
+            message: "La contraseña debe tener una minúscula"
+        },
+
+        numeros: {
+
+            error: !numeroRegex.test(password),
+            message: "La contraseña debe tener un número"
+        },
+
+        caracterEspecial: {
+
+            error: !caracteresEspecialesRegex.test(password),
+            message: "La contraseña debe un caracter especial (@$!%*?&¡(){})"
+        },
+
+
+        limite: {
+
+            error: !limiteRegex.test(password),
+            message: "La contraseña debe tener al menos 8 caracteres"
+        },
+
+
+    }
+
+    const contraseñaValida = Object.keys(objetoPassword).map(key => objetoPassword[key]).every(objeto => !objeto.error);
+    const mensajesError = Object.keys(objetoPassword).map(key => objetoPassword[key]).filter(objeto => objeto.error).map(objetoEntero => objetoEntero.message);
+    console.log(contraseñaValida);
+    console.log(mensajesError);
+
+    return {
+
+        isValid: contraseñaValida,
+        errores: mensajesError,
+    }
 }
 
 const mostrarError = (input, mensaje) => {
@@ -69,18 +121,22 @@ const estaVacio = (valor) => {
 }
 const checkPassword = () => {
 
+
+   
     let valid = false;
     const password = inputPassword.value.trim();
+    const contrasenaValidaChequeo = passwordSegura(password);
 
     if (estaVacio(password)) {
 
         mostrarError(inputPassword, "La contraseña es obligatoria");
     }
 
-    else if(!passwordSegura(password)) {
+    else if(!contrasenaValidaChequeo.isValid) {
 
-        mostrarError(inputPassword, "La contraseña debe tener al menos 8 caracteres, un caracter especial (@$!%*?&), un número y una mayúscula")
-    }
+        mostrarError(inputPassword, contrasenaValidaChequeo.errores.join(" / "));
+
+        }
 
     else {
 
@@ -165,7 +221,7 @@ const checkUsername = () => {
 
     else if (!isBetween(username.length, min, max)) {
 
-        mostrarError(usernameInput, `El nombre de usuario debe tener entre ${min} y ${max} caracteres`)
+        mostrarError(usernameInput, `El usuario debe tener entre ${min} y ${max} caracteres`)
 
     }
 
