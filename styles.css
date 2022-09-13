@@ -8,6 +8,7 @@
     list-style: none;
     font-family: 'montserrat';
     text-decoration: none;
+    
 }
 
 html, body {
@@ -241,6 +242,7 @@ header {
         align-items: center;
         gap: 30px;
         flex-wrap: wrap;
+        padding-bottom: 30px;
     }
   .item {
 
@@ -455,4 +457,67 @@ header {
 }
 
 
+.flip-card {
+  background-color: transparent;
+  width: 170px;
+  height: 225px;
+  margin: 10px 0px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
 
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: auto;
+  height: 225px;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+  height: 225px;
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 225px;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  height: 225px;
+  background-color: #bbb;
+  color: black;
+}
+
+/* Style the back side */
+.flip-card-back {
+  height: 225px;
+  width: 100%;
+  padding: 20px;
+  background-color: rgb(49, 50, 50);
+  color: white;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: space-betw
+}
+
+.cita-tarjeta {
+
+  font-size: 13px;
+  text-align: justify;
+  white-space: pre;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}

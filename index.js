@@ -312,6 +312,37 @@ console.log(agruparporCriterio(arrayCatalogoLibros, "año"));
 
 let catalogoLibros = document.querySelector(".catalogo-libros");
 
+const datosLibros = (id, dato) => {
+
+ let libroBuscado = arrayCatalogoLibros.find(libroA => libroA.id === id);
+
+ let arrayDatos = [];
+
+ arrayDatos.push(libroBuscado.año, libroBuscado.precio, libroBuscado.coleccion, libroBuscado.paginas);
+
+ if (dato === "precio") {
+
+  return libroBuscado.precio;
+ }
+
+ else if (dato === "coleccion") {
+
+  return libroBuscado.coleccion;
+ }
+
+
+ else if (dato === "año") {
+
+  return libroBuscado.año;
+ }
+
+ else {
+
+  return libroBuscado.paginas;
+ }
+}
+
+
 const librosCatalogo = (mostrar) => {
   let librosParaCatalogo = [];
 
@@ -322,11 +353,26 @@ const librosCatalogo = (mostrar) => {
       );
     }
   }
-
+  
   else if (mostrar === "Narrativa") {
     for (let index = 1; index < 13; index++) {
       librosParaCatalogo.push(
-        `<div class="item"><img src="/libros/libroid${index}.jpg" alt="libroid${index}"></div>`
+        `<div class="flip-card item">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="/libros/libroid${index}.jpg" alt="Avatar" style="width:300px;height:300px;">
+          </div>
+          <div class="flip-card-back">
+            
+            <p class="cita-tarjeta">Precio: ${datosLibros(index, "precio")}</p>
+            <p class="cita-tarjeta">Año: ${datosLibros(index, "año")}</p>
+            <p class="cita-tarjeta">Colección: ${datosLibros(index, "coleccion")}</p>
+            <p class="cita-tarjeta">Páginas: ${datosLibros(index, "paginas")}</p>
+            
+          </div>
+        </div>
+      </div>
+       `
       );
     }
   }
@@ -334,7 +380,22 @@ const librosCatalogo = (mostrar) => {
   else if (mostrar === "Ensayos") {
     for (let index = 13; index < 19; index++) {
       librosParaCatalogo.push(
-        `<div class="item"><img src="/libros/libroid${index}.jpg" alt="libroid${index}"></div>`
+        `<div class="flip-card item">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="/libros/libroid${index}.jpg" alt="Avatar" style="width:300px;height:300px;">
+          </div>
+          <div class="flip-card-back">
+            
+            <p class="cita-tarjeta">Precio: ${datosLibros(index, "precio")}</p>
+            <p class="cita-tarjeta">Año: ${datosLibros(index, "año")}</p>
+            <p class="cita-tarjeta">Colección: ${datosLibros(index, "coleccion")}</p>
+            <p class="cita-tarjeta">Páginas: ${datosLibros(index, "paginas")}</p>
+            
+          </div>
+        </div>
+      </div>
+       `
       );
     }
   }
@@ -342,7 +403,22 @@ const librosCatalogo = (mostrar) => {
   else if (mostrar === "Exotopías") {
     for (let index = 19; index < 25; index++) {
       librosParaCatalogo.push(
-        `<div class="item"><img src="/libros/libroid${index}.jpg" alt="libroid${index}"></div>`
+        `<div class="flip-card item">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="/libros/libroid${index}.jpg" alt="Avatar" style="width:300px;height:300px;">
+          </div>
+          <div class="flip-card-back">
+            
+            <p class="cita-tarjeta">Precio: ${datosLibros(index, "precio")}</p>
+            <p class="cita-tarjeta">Año: ${datosLibros(index, "año")}</p>
+            <p class="cita-tarjeta">Colección: ${datosLibros(index, "coleccion")}</p>
+            <p class="cita-tarjeta">Páginas: ${datosLibros(index, "paginas")}</p>
+            
+          </div>
+        </div>
+      </div>
+       `
       );
     }
   }
